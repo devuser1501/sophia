@@ -35,14 +35,14 @@ export const SlideLayout = ({ colors, title, subtitle, children, showQRCode = tr
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.8 }}
-          className="w-full flex justify-center mb-2 mt-4"
+          className="w-full flex justify-center mb-4 mt-6"
         >
           <div className="bg-white p-2.5 rounded-lg shadow-md flex items-center space-x-3">
             <Image
               src="/images/qr-code.png"
               alt="QR Code"
-              width={100}
-              height={100}
+              width={90}
+              height={90}
               className="rounded-md"
               priority
             />
