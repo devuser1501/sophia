@@ -1,10 +1,11 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { CheckCircle, ExternalLink, ArrowRight, Rocket } from "lucide-react"
+import { CheckCircle, ExternalLink, ArrowRight, Rocket, Twitter, Mail } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import type { BaseSlideProps } from "@/types/slide-types"
 import { SlideLayout } from "../layout/slide-layout"
+import Image from "next/image"
 
 export const ConclusionSlide = ({ colors }: BaseSlideProps) => {
   const containerVariants = {
@@ -23,7 +24,7 @@ export const ConclusionSlide = ({ colors }: BaseSlideProps) => {
   }
 
   return (
-    <SlideLayout colors={colors} title="君の未来は、君が創る！">
+    <SlideLayout colors={colors} title="君の未来は、君が創る！" showQRCode={false}>
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -132,19 +133,38 @@ export const ConclusionSlide = ({ colors }: BaseSlideProps) => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.8 }}
-        className="mt-6 bg-gradient-to-r from-[#A70028] to-[#C41E3A] p-4 rounded-lg text-white text-center"
+        className="mt-6 bg-gradient-to-r from-[#00c4a7] to-[#00a896] p-5 rounded-lg text-white text-center"
       >
-        <p className="text-lg font-bold">上智大学の皆さんなら、きっと世界を変えられる！</p>
-        <p className="text-sm">今日が、あなたの「未来を創る第一歩」になりますように</p>
-        <div className="mt-4 flex justify-center space-x-4">
-          <Button className="bg-white text-[#A70028] hover:bg-gray-100">
-            <ExternalLink className="h-4 w-4 mr-2" />
-            <span>連絡先</span>
-          </Button>
-          <Button className="bg-white text-[#A70028] hover:bg-gray-100">
-            <ArrowRight className="h-4 w-4 mr-2" />
-            <span>資料ダウンロード</span>
-          </Button>
+        <div className="flex flex-col items-center">
+          <div className="mb-4">
+            <p className="text-xl font-bold mb-2">上智大学の皆さんなら、きっと世界を変えられる！</p>
+            <p className="text-lg">今日が、あなたの「未来を創る第一歩」になりますように</p>
+          </div>
+          
+          <div className="mt-3 flex flex-col items-center">
+            <div className="mb-3">
+              <Image
+                src="/images/instagram-qr.png"
+                alt="Instagram QR"
+                width={180}
+                height={180}
+                className="rounded-md border-2 border-white"
+                priority
+              />
+              <p className="text-lg font-bold mt-1">TOMONARI.KINO</p>
+            </div>
+            
+            <div className="flex justify-center space-x-16 mt-3">
+              <div className="flex items-center">
+                <Twitter className="h-7 w-7 mr-2 text-white" />
+                <span className="text-2xl font-bold">@Tomo_Kino_</span>
+              </div>
+              <div className="flex items-center">
+                <Mail className="h-7 w-7 mr-2 text-white" />
+                <span className="text-2xl font-bold">kino@athearth.com</span>
+              </div>
+            </div>
+          </div>
         </div>
       </motion.div>
     </SlideLayout>
